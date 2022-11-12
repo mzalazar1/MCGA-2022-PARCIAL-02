@@ -4,6 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <p>Eliminar esta etiqueta</p>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
