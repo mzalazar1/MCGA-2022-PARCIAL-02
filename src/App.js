@@ -1,21 +1,14 @@
 import './App.css';
-import BodySection from './Components/Body/Body';
-import React from 'react';
+import { Route, Routes } from "react-router-dom";
+import Home from './Screens/Home';
+import Recursos from './Screens/Resource';
 
 function App() {
   return (
-    <div>
-      <header>
-        <p>Acá va el componente header</p>
-        <nav>
-          <p>Barra de navegaciónn</p>
-        </nav>
-      </header>
-      <BodySection />
-      <footer>
-          <p>Acá va el footer</p>
-      </footer>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/recursos" element={<Recursos />} />
+    </Routes>
   );
 }
 
