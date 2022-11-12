@@ -1,0 +1,12 @@
+h1 {
+    color: darkgray;
+}
+h2 {
+    font-size: larger;
+}
+h3 {
+    color: lightgrey;
+}
+.texto {
+    max-width: 75%;
+}
