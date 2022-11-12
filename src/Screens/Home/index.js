@@ -1,19 +1,14 @@
-import BodySection from '../../Components/Body/Body';
+import HeaderSection from '../../Components/Header/Header';
+import BodySectionHome from '../../Components/Body/Body';
+import FooterSection from '../../Components/Footer/Footer';
 import React from 'react';
 
 const Home = () => {
     return (
         <div>
-          <header>
-            <p>Acá va el componente header</p>
-            <nav>
-              <p>Barra de navegaciónn</p>
-            </nav>
-          </header>
-          <BodySection />
-          <footer>
-              <p>Acá va el footer</p>
-          </footer>
+          <HeaderSection />
+          <BodySectionHome />
+          <FooterSection />
         </div>
     )
 }
