@@ -1,4 +1,4 @@
-
+import { useForm } from "react-hook-form";
 import React, { useState } from "react";
 
 const Form = ({ id, descripcion, stock, precio }) => {
