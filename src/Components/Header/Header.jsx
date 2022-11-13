@@ -7,7 +7,7 @@ const HeaderSection = () => {
             <p className={styles.titulo}>Nombre de la aplicación</p>
             <div className={styles.navegacion}>
                 <a href='./'>Home</a>
-                <a href='./recursos'>Recursos</a>
+                <a href='./productos'>Productos</a>
             </div>
         </div>
     );
