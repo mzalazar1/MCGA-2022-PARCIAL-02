@@ -17,7 +17,7 @@ const reducer = (state = INITIAL_STATE, action) => {
             if (product.id === updProdDetail.id) {
                 return updProdDetail;
             } else {
-                return user;
+                return product;
             }
             });
             return { products: updProd };

@@ -23,10 +23,11 @@ const Productos = () => {
                 <Boton
                 tipo='prodABM'
                 texto='Obtener todos' />
+                <a href='./addproduct'>
                 <Boton
                 tipo='prodABM'
                 texto='Agregar nuevo' />
-                
+                </a>                
             </div>
 
             {/* <button type='button' onClick={() => dispatch(addProduct())}>Agrega producto</button>
