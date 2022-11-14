@@ -4,18 +4,18 @@ import FooterSection from '../../Components/Footer/Footer';
 import Boton from "../../Components/SharedComponents/Boton";
 import styles from './Index.module.css'
 import Tabla from '../../Components/Table/table'
-let linkProd = 'http://localhost:4000/exam_01_mcga/products/all';
-let productos = '';
 
-const obtProductos = () => {
-    fetch(linkProd)
-        .then(function (respuesta) {
-            //return respuesta.json()
-            productos = respuesta.json();
-        })
-}
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct, editProduct, remProduct } from '../../redux/Productos/prod.actions'
+
+
+
 
 const Productos = () => {
+
+    // const dispatch = useDispatch();
+    // const { products } = useSelector((state) => state.products);
+
     return(
         <div>
             <HeaderSection />
@@ -26,7 +26,12 @@ const Productos = () => {
                 <Boton
                 tipo='prodABM'
                 texto='Agregar nuevo' />
+                
             </div>
+
+            {/* <button type='button' onClick={() => dispatch(addProduct())}>Agrega producto</button>
+            <button type='button' onClick={() => dispatch(editProduct())}>Edita Producto</button>
+            <div>Estado: {products}</div> */}
 
             <Tabla />
 
