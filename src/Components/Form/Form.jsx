@@ -1,15 +1,30 @@
 import { useForm } from "react-hook-form";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addProd } from "../../redux/Productos/prod.actions";
 import ProdInput from "../SharedComponents/Input";
 import Boton from "../SharedComponents/Boton";
 import styles from './Form.module.css'
 
 const Formulario = () => {
+    const [datos, setItem] = useState({})
+    const dispatch = useDispatch();
+    
+    const addItem = (item) => {
+        setItem([...datos, item])
+    }
+
+    const navigate = useNavigate()
 
     const {register, formState: {errors}, handleSubmit} = useForm()
     const product = (data) => {
-        console.log(data);
+        console.log(data, datos);
+        //addItem(data)
+        dispatch(addProd(data));
+        navigate('/productos')
     }
+
     return (
     <div className={styles.frmProd}>
         <h2>Formulario</h2>

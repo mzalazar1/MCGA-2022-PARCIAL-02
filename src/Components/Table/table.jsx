@@ -1,10 +1,15 @@
-import React from "react";
-import styles from './Table.module.css';
+import { Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Boton from "../SharedComponents/Boton";
-
-function Table() {
-    return (
-        <>
+import styles from './Table.module.css'
+const Tabla = () => {
+  const products = useSelector((state) => state.product.products);
+  const dispatch = useDispatch();
+  return (
+    <div>
+    {products.length > 0 ? (
+        <Fragment>
+          {products.map((product) => (
             <table className={styles.Table}>
                 <thead>
                     <tr>
@@ -17,10 +22,11 @@ function Table() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>a1</td>
-                        <td>a2</td>
-                        <td>a3</td>
+                        <td>{product.id}</td>
+                        <td>{product.name}</td>
+                        <td>{product.price}</td>
+                        <td>{product.stock}</td>
+                        <td>{product.description}</td>
                         <td>
                             <Boton
                                 tipo='editProd'
@@ -30,16 +36,14 @@ function Table() {
                                 texto='Eliminar' />
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>b1</td>
-                        <td>b2</td>
-                        <td>b3</td>
-                    </tr>
                 </tbody>
             </table>
-        </>
-    )
-}
-
-export default Table
+          ))}
+        </Fragment>
+      ) : (
+        <h4>No hay productos cargados</h4>
+      )}
+    </div>
+  );
+};
+export default Tabla;

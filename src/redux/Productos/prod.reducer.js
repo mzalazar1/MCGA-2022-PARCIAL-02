@@ -6,12 +6,12 @@ const INITIAL_STATE = {
 
 const reducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case addProd:
+        case 'ADD_PROD':
             return {
                 products: [action.payload, ...state.products]
             };
 
-        case editProd:
+        case 'EDIT_PROD':
             const updProdDetail = action.payload;
             const updProd = state.products.map((product) => {
             if (product.id === updProdDetail.id) {
@@ -22,7 +22,7 @@ const reducer = (state = INITIAL_STATE, action) => {
             });
             return { products: updProd };
 
-        case remProd:
+        case 'REMOVE_PROD':
             return {
                 products: state.products.filter((product) => {
                   return product.id !== action.payload;
