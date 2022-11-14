@@ -1,8 +1,6 @@
 export const addProd = (prod) => {
     return (dispatch) => {
-      setTimeout(() => {
         dispatch(addProdAsync(prod));
-      }, 1000);
     };
 };
   

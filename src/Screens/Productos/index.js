@@ -5,12 +5,6 @@ import Boton from "../../Components/SharedComponents/Boton";
 import styles from './Index.module.css'
 import Tabla from '../../Components/Table/table'
 
-import { useDispatch, useSelector } from 'react-redux';
-import { addProduct, editProduct, remProduct } from '../../redux/Productos/prod.actions'
-
-
-
-
 const Productos = () => {
 
     // const dispatch = useDispatch();
