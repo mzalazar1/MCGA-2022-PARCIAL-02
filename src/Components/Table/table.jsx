@@ -1,45 +1,45 @@
-import React from "react";
-import styles from './Table.module.css';
+import { Fragment } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Boton from "../SharedComponents/Boton";
+import styles from './Table.module.css';
+import { removeProd } from '../../redux/Productos/prod.actions';
 
-function Table() {
-    return (
-        <>
-            <table className={styles.Table}>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Descripción</th>
-                        <th>Stock</th>
-                        <th>Precio</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
+const Tabla = () => {
+  const products = useSelector((state) => state.Reduc.products);
+  const dispatch = useDispatch();
+  return (
+    <div>
+      
+    {products.length > 0 ? (
+      <div>
+          {products.map((product) => (
+            <table className={styles.Table} key={product.id}>
+                
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>a1</td>
-                        <td>a2</td>
-                        <td>a3</td>
-                        <td>
-                            <Boton
+                        <td className={styles.tdDatos}>{product.id}</td>
+                        <td className={styles.tdDatos}>{product.name}</td>
+                        <td className={styles.tdDatos}>{product.price}</td>
+                        <td className={styles.tdDatos}>{product.stock}</td>
+                        <td className={styles.tdDatos}>{product.description}</td>
+                        <td className={styles.tdBotones}>
+                          <Link to={`/edit/${product.id}`}>
+                          <Boton
                                 tipo='editProd'
                                 texto='Editar' />
-                            <Boton
-                                tipo='elimProd'
-                                texto='Eliminar' />
+                          </Link>
+                          <button className={styles.elimProd} onClick={() => dispatch(removeProd(product.id))}> Eliminar </button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>b1</td>
-                        <td>b2</td>
-                        <td>b3</td>
                     </tr>
                 </tbody>
             </table>
-        </>
-    )
-}
-
-export default Table
+          ))}
+        </div>
+      ) : (
+        <h4>No hay productos cargados</h4>
+      )}
+    </div>
+  );
+};
+export default Tabla;

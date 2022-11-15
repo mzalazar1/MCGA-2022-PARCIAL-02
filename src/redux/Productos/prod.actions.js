@@ -1,19 +1,26 @@
-import { addProd, editProd, remProd  } from './prod.types';
-
-export const addProduct = () => {
+export const addProd = (prod) => {
+  return (dispatch) => {
+    dispatch(addProdAsync(prod));
+  };
+};
+  
+export const addProdAsync = (prod) => {
     return {
-        type: addProd,
+      type: "ADD_PROD",
+      payload: prod
     };
 };
-
-export const editProduct = () => {
+  
+export const editProd = (prod) => {
     return {
-       type: editProd,
+      type: "EDIT_PROD",
+      payload: prod
     };
 };
-
-export const remProduct = () => {
+  
+export const removeProd = (id) => {
     return {
-       type: remProd,
+      type: "REMOVE_PROD",
+      payload: id
     };
 };
