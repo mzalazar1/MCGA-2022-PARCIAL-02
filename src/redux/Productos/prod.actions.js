@@ -1,7 +1,7 @@
 export const addProd = (prod) => {
-    return (dispatch) => {
-        dispatch(addProdAsync(prod));
-    };
+  return (dispatch) => {
+    dispatch(addProdAsync(prod));
+  };
 };
   
 export const addProdAsync = (prod) => {

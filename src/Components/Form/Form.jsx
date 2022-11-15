@@ -12,7 +12,7 @@ const Formulario = () => {
     const dispatch = useDispatch();
     
     const addItem = (item) => {
-        setItem([...datos, item])
+        setItem({id: item.id, name: item.name, price: item.price})
     }
 
     const navigate = useNavigate()
@@ -20,7 +20,7 @@ const Formulario = () => {
     const {register, formState: {errors}, handleSubmit} = useForm()
     const product = (data) => {
         console.log(data, datos);
-        //addItem(data)
+        addItem(data)
         dispatch(addProd(data));
         navigate('/productos')
     }

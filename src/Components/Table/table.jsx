@@ -3,23 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import Boton from "../SharedComponents/Boton";
 import styles from './Table.module.css'
 const Tabla = () => {
-  const products = useSelector((state) => state.product.products);
+  const products = useSelector((state) => state.Reduc.products);
   const dispatch = useDispatch();
   return (
     <div>
+      
     {products.length > 0 ? (
-        <Fragment>
+      <div>
           {products.map((product) => (
-            <table className={styles.Table}>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Descripción</th>
-                        <th>Stock</th>
-                        <th>Precio</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
+            <table className={styles.Table} key={product}>
+                
                 <tbody>
                     <tr>
                         <td>{product.id}</td>
@@ -39,7 +32,7 @@ const Tabla = () => {
                 </tbody>
             </table>
           ))}
-        </Fragment>
+        </div>
       ) : (
         <h4>No hay productos cargados</h4>
       )}

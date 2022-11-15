@@ -8,7 +8,7 @@ const reducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case 'ADD_PROD':
             return {
-                products: [action.payload, ...state.products]
+                products: [...state.products, action.payload]
             };
 
         case 'EDIT_PROD':
@@ -22,7 +22,7 @@ const reducer = (state = INITIAL_STATE, action) => {
             });
             return { products: updProd };
 
-        case 'REMOVE_PROD':
+        case 'REM_PROD':
             return {
                 products: state.products.filter((product) => {
                   return product.id !== action.payload;
