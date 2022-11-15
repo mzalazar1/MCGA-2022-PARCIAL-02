@@ -16,9 +16,6 @@ const Productos = () => {
         <div> 
         <HeaderSection />
         <div className={styles.botProd}>
-            <Boton 
-                tipo='prodABM'
-                texto='Obtener todos' />
             <Link to="/addproduct">
                 <Boton 
                     tipo='prodABM'

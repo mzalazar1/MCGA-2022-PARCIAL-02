@@ -19,7 +19,6 @@ const Formulario = () => {
 
     const {register, formState: {errors}, handleSubmit} = useForm()
     const product = (data) => {
-        console.log(data, datos);
         addItem(data)
         dispatch(addProd(data));
         navigate('/productos')

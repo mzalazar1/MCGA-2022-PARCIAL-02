@@ -2,7 +2,9 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Boton from "../SharedComponents/Boton";
-import styles from './Table.module.css'
+import styles from './Table.module.css';
+import { removeProd } from '../../redux/Productos/prod.actions';
+
 const Tabla = () => {
   const products = useSelector((state) => state.Reduc.products);
   const dispatch = useDispatch();
@@ -27,9 +29,7 @@ const Tabla = () => {
                                 tipo='editProd'
                                 texto='Editar' />
                           </Link>
-                            <Boton
-                                tipo='elimProd'
-                                texto='Eliminar' />
+                          <button className={styles.elimProd} onClick={() => dispatch(removeProd(product.id))}> Eliminar </button>
                         </td>
                     </tr>
                 </tbody>

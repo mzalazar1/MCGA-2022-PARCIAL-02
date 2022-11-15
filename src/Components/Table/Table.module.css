@@ -24,3 +24,15 @@ td {
 .thBotones {
     width: 200px;
 }
+.elimProd {
+    background-color: blue;
+    width: 40%;
+    font-weight: 500;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin: 10PX;
+    background-color: red;
+}
