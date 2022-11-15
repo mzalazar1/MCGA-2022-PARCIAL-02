@@ -19,11 +19,26 @@ const Formulario = () => {
 
     const {register, formState: {errors}, handleSubmit} = useForm()
     const product = (data) => {
+        //addProdInDb(data)
         addItem(data)
-        http.post("/add", data);
         dispatch(addProd(data));
         navigate('/productos')
     }
+
+    /*const addProdInDb = (data) => {
+        fetch('http://localhost:5000/add'), {
+        method: 'POST',
+        body: JSON.stringify({
+        name: data.name,
+        stock: data.stock,
+        price: data.price,
+        description: data.description,
+        }),
+        headers: {
+         'Content-type': 'application/json; charset=UTF-8',
+          },
+        }
+    }*/
 
     return (
     <div className={styles.frmProd}>
@@ -37,7 +52,7 @@ const Formulario = () => {
                     placeholder="id"
                     name="id"
                     rules={{
-                        required: 'ingrese número de ID'
+                        //required: 'ingrese número de ID'
                     }}
                 />
                 {errors.id && <span className={styles.claseError}>{errors.id.message}</span>}
