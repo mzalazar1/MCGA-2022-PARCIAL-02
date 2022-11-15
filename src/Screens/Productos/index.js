@@ -28,5 +28,5 @@ const Productos = () => {
         </div>
     );
 }
-export default Productos;
 
+export default Productos;
