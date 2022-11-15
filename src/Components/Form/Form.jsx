@@ -5,22 +5,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProd } from "../../redux/Productos/prod.actions";
 import ProdInput from "../SharedComponents/Input";
 import Boton from "../SharedComponents/Boton";
-import styles from './Form.module.css'
+import styles from './Form.module.css';
+import http from '../../redux/http-common'
 
 const Formulario = () => {
     const [datos, setItem] = useState({})
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     const addItem = (item) => {
         setItem({ id: item.id, name: item.name, price: item.price })
     }
 
-    const navigate = useNavigate()
-
     const { register, formState: { errors }, handleSubmit } = useForm()
     const product = (data) => {
-        console.log(data, datos);
         addItem(data)
+        http.post("/add", data);
         dispatch(addProd(data));
         navigate('/productos')
     }

@@ -22,7 +22,7 @@ const reducer = (state = INITIAL_STATE, action) => {
             });
             return { products: updProd };
 
-        case 'REM_PROD':
+        case 'REMOVE_PROD':
             return {
                 products: state.products.filter((product) => {
                     return product.id !== action.payload;
