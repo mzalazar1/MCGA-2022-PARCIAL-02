@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import Boton from "../../Components/SharedComponents/Boton";
 import { editProd } from '../../redux/Productos/prod.actions';
 
 const EditProd = () => {
@@ -9,23 +10,17 @@ const EditProd = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.Reduc.products);
   const currentId = useParams();
-  //setTodos(products.filter((prod) => prod.id !== id))
 
-  const prodChangeHandler = (event) => {
-    setSelectedProd({ ...selectedProd, name: event.target.value.name });
-  };
   const navigate = useNavigate();
   const onSubmitHandler = () => {
     dispatch(editProd(selectedProd));
-    navigate("/");
+    navigate("/productos");
   };
 
   useEffect(() => {
     const prodDetail = products.filter(prod => prod.id === currentId.id);
-    console.log(prodDetail)
-    setSelectedProd(prodDetail);
-    console.log("selectedprod: ",selectedProd)
-  }, [currentId, products]);
+    setSelectedProd(prodDetail[0]);
+  }, [currentId]);
 
   return (
     <div>
@@ -33,7 +28,7 @@ const EditProd = () => {
         <label>Nombre:</label>
         <input
           type="text"
-          onChange={prodChangeHandler}
+          onChange = {(e) => setSelectedProd({...selectedProd, name: e.target.value})}
           value={selectedProd.name}
           name="name"
           placeholder="Enter Name"
@@ -41,7 +36,7 @@ const EditProd = () => {
         <label>Precio:</label>
         <input
           type="text"
-          //onChange={prodChangeHandler}
+          onChange = {(e) => setSelectedProd({...selectedProd, price: e.target.value})}
           value={selectedProd.price}
           name="price"
           placeholder="Ingrese el precio"
@@ -49,7 +44,7 @@ const EditProd = () => {
         <label>Stock:</label>
         <input
           type="text"
-          //onChange={prodChangeHandler}
+          onChange = {(e) => setSelectedProd({...selectedProd, stock: e.target.value})}
           value={selectedProd.stock}
           name="stock"
           placeholder="Ingrese el stock"
@@ -57,19 +52,14 @@ const EditProd = () => {
         <label>Descripcion:</label>
         <input
           type="text"
-          //onChange={prodChangeHandler}
+          onChange = {(e) => setSelectedProd({...selectedProd, description: e.target.value})}
           value={selectedProd.description}
           name="description"
           placeholder="Ingrese la descripcion"
         />
-      <button type="submit">
-        Submit
-      </button>
-      <Link
-        to="/"
-      >
-        Cancel
-      </Link>
+        <Boton 
+          tipo='prodABM'
+          texto='Guardar' />
     </form>
     </div>
   );

@@ -15,14 +15,16 @@ const Productos = () => {
     return (
         <div> 
         <HeaderSection />
-        <Boton
-            tipo='prodABM'
-            texto='Obtener todos' />
-        <Link to="/addproduct">
+        <div className={styles.botProd}>
             <Boton 
                 tipo='prodABM'
-                texto='Agregar producto' />
-        </Link>
+                texto='Obtener todos' />
+            <Link to="/addproduct">
+                <Boton 
+                    tipo='prodABM'
+                    texto='Agregar producto' />
+            </Link>
+        </div>
         <TablaCabecera />
         <Tabla />
         <FooterSection />

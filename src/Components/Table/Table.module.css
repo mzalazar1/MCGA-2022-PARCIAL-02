@@ -16,3 +16,11 @@ td {
     border-radius: 5px;
     margin: 0;
 }
+.tdDatos,
+.thDatos {
+    width: 125px;
+}
+.tdBotones,
+.thBotones {
+    width: 200px;
+}

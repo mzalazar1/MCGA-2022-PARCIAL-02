@@ -16,12 +16,12 @@ const Tabla = () => {
                 
                 <tbody>
                     <tr>
-                        <td>{product.id}</td>
-                        <td>{product.name}</td>
-                        <td>{product.price}</td>
-                        <td>{product.stock}</td>
-                        <td>{product.description}</td>
-                        <td>
+                        <td className={styles.tdDatos}>{product.id}</td>
+                        <td className={styles.tdDatos}>{product.name}</td>
+                        <td className={styles.tdDatos}>{product.price}</td>
+                        <td className={styles.tdDatos}>{product.stock}</td>
+                        <td className={styles.tdDatos}>{product.description}</td>
+                        <td className={styles.tdBotones}>
                           <Link to={`/edit/${product.id}`}>
                           <Boton
                                 tipo='editProd'
