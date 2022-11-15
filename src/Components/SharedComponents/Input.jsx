@@ -1,13 +1,9 @@
-import { useForm } from "react-hook-form"
 
-const SharedInput = () => {
-    const { productos, formState: { errors }, handleSubmit } = useForm()
-
+const ProdInput = ({ register, type, placeholder, name, rules }) => {
     return (
-        <form>
-            <input {...productos("username")} />
-        </form>
+        <input {...register(`${name}`, rules)} type={type} placeholder={placeholder} name={name} >
+        </input>
     )
 }
 
-export default SharedInput;
+export default ProdInput;

@@ -1,33 +1,45 @@
-import React from "react";
-import styles from './Table.module.css';
+import { Fragment } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import Boton from "../SharedComponents/Boton";
+import styles from './Table.module.css'
+const Tabla = () => {
+    const products = useSelector((state) => state.Reduc.products);
+    const dispatch = useDispatch();
+    return (
+        <div>
 
-// function Table() {
-//     return (
-//         <>
-//             <table>
-//                 <thead>
-//                     <tr>
-//                         <th>Id</th>
-//                         <th>Descripción</th>
-//                         <th>Stock</th>
-//                         <th>Precio</th>
-//                     </tr>
-//                 </thead>
-//                 <tbody>
-//                     {data.productos.forEach(element => {
-//                         <tr>
-//                             <td>{element.id}</td>
-//                             <td>{element.desc}</td>
-//                             <td>{element.stock}</td>
-//                             <td>{element.precio}</td>
-//                         </tr>
-//                     })
-//                     }
+            {products.length > 0 ? (
+                <div>
+                    {products.map((product) => (
+                        <table className={styles.Table} key={product.id}>
 
-//                 </tbody>
-//             </table>
-//         </>
-//     )
-// }
-
-// export default Table
+                            <tbody>
+                                <tr>
+                                    <td className={styles.tdDatos}>{product.id}</td>
+                                    <td className={styles.tdDatos}>{product.name}</td>
+                                    <td className={styles.tdDatos}>{product.price}</td>
+                                    <td className={styles.tdDatos}>{product.stock}</td>
+                                    <td className={styles.tdDatos}>{product.description}</td>
+                                    <td className={styles.tdBotones}>
+                                        <Link to={`/edit/${product.id}`}>
+                                            <Boton
+                                                tipo='editProd'
+                                                texto='Editar' />
+                                        </Link>
+                                        <Boton
+                                            tipo='elimProd'
+                                            texto='Eliminar' />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    ))}
+                </div>
+            ) : (
+                <h4>No hay productos cargados</h4>
+            )}
+        </div>
+    );
+};
+export default Tabla;

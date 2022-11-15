@@ -1,46 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Fragment } from "react";
 import HeaderSection from '../../Components/Header/Header';
-
 import FooterSection from '../../Components/Footer/Footer';
 import Boton from "../../Components/SharedComponents/Boton";
-import Form from "../../Components/Form/Form";
 import styles from './Index.module.css'
-let linkProd = 'http://localhost:4000/exam_01_mcga/products/all';
-let productos = '';
-
-const obtProductos = () => {
-    fetch(linkProd)
-        .then(function (respuesta) {
-            //return respuesta.json()
-            productos = respuesta.json();
-        })
-}
-// const Table = () => {
-//      return(
-//         <div>
-// <Table />
-//         </div>
-//      )
-// }
-const Recursos = () => {
-    return (
-        <div>
-            <HeaderSection />
-            <Boton
-                tipo='prodABM'
-                texto='Obtener todos' />
-            <h1>Esta es la parte de productos</h1>
-            < Form
-                id='001'
-                descripcion='coca cola'
-                stock='20'
-                precio='300'
-            />
-        </div>
-    )
-}
+import Tabla from '../../Components/Table/table'
+import TablaCabecera from '../../Components/Table/tableHead'
 
 const Productos = () => {
+    const products = useSelector((state) => state.Reduc.products);
+    const dispatch = useDispatch();
     return (
         <div>
             <HeaderSection />
@@ -48,24 +19,17 @@ const Productos = () => {
                 <Boton
                     tipo='prodABM'
                     texto='Obtener todos' />
-                <Boton
-                    tipo='prodABM'
-                    texto='Agregar nuevo' />
-                <Boton
-                    tipo='prodABM'
-                    texto='Modificar' />
-                <Boton
-                    tipo='prodABM'
-                    texto='Eliminar' />
+                <Link to="/addproduct">
+                    <Boton
+                        tipo='prodABM'
+                        texto='Agregar producto' />
+                </Link>
             </div>
-
-            <h1>Esta es la parte de productos</h1>
-
-            Tabla
-
+            <TablaCabecera />
+            <Tabla />
             <FooterSection />
         </div>
     );
 }
-
 export default Productos;
+

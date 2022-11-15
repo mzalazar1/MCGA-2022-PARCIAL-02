@@ -1,13 +1,18 @@
 import React from 'react';
 import styles from './Header.module.css';
+import { Link } from "react-router-dom";
 
 const HeaderSection = () => {
     return (
         <div className={styles.cabecera}>
-            <p className={styles.titulo}>Aplicación Parcial MCGA</p>
+            <p className={styles.titulo}>Aplicación Parcial MCGA - 02</p>
             <div className={styles.navegacion}>
-                <a href='./'>Home</a>
-                <a href='./productos'>Productos</a>
+                <Link to="/">
+                    Home
+                </Link>
+                <Link to="/productos">
+                    Productos
+                </Link>
             </div>
         </div>
     );

@@ -1,0 +1,30 @@
+Table {
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+}
+
+tr,
+th {
+    height: 35px;
+    border: 1px solid
+}
+
+th,
+td {
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.tdDatos,
+.thDatos {
+    width: 125px;
+}
+
+.tdBotones,
+.thBotones {
+    width: 200px;
+}
