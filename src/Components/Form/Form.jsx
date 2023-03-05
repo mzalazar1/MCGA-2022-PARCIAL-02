@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addProd } from "../../redux/Productos/prod.actions";
 import ProdInput from "../SharedComponents/Input";
 import Boton from "../SharedComponents/Boton";
 import styles from './Form.module.css';
-import http from '../../redux/http-common'
 
 const Formulario = () => {
     const [datos, setItem] = useState({})
@@ -20,7 +19,7 @@ const Formulario = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
     const product = (data) => {
         addItem(data)
-        http.post("/add", data);
+        URL.post("/add", data);
         dispatch(addProd(data));
         navigate('/productos')
     }

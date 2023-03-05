@@ -2,7 +2,7 @@ import React from "react";
 import './Boton.css';
 
 const Boton = ({ tipo, texto }) => {
-    return(
+    return (
         <button className={tipo}>{texto}</button>
     );
 }
