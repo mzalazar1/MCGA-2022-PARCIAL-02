@@ -19,7 +19,7 @@ const Formulario = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
     const product = (data) => {
         addItem(data)
-        URL.post("/add", data);
+        process.env.URL.post("/add", data);
         dispatch(addProd(data));
         navigate('/productos')
     }

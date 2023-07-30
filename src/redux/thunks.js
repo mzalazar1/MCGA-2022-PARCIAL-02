@@ -4,13 +4,11 @@ import { useEffect } from 'react';
 
 // aca defino las fn
 
-
-
 export const getProducts = () => {
 
     const dispatch = useDispatch()
 
-    const urlGetProd = 'http://localhost:3000/exam_01_mcga/products/all'
+    const urlGetProd = 'http://localhost:5001/api/products'
 
     useEffect(() => {
         return async () => {
